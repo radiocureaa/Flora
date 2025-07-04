@@ -924,7 +924,9 @@
             </select>
             <button class="log-activity-btn" id="logActivityBtn" onclick="logActivity()">Log Activity</button>
             <div class="last-activity" id="lastActivity">No activities logged yet</div>
-        </div>
+        </div> <div class="remove-section">
+    <button class="remove-friend-btn" onclick="confirmDelete(currentFriendId)">Remove Friend</button>
+</div>
     </div>
 
     <!-- Modal Dialog -->
@@ -1052,9 +1054,6 @@
                                     </div>
                                     <div class="strength-text">${slot.strength}%</div>
                                 </div>
-                                <button class="delete-button" onclick="confirmDelete(${slot.id}); event.stopPropagation();">
-                                    Remove Friend
-                                </button>
                             </div>
                         </div>
                     `;
