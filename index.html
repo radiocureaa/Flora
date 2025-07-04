@@ -21,20 +21,34 @@
         }
 
         /* Title Screen */
-        .title-screen {
-            text-align: center;
-            color: white;
-            animation: fadeIn 1s ease-in;
-            background: linear-gradient(135deg, #4a7c4a 0%, #6b9b6b 50%, #8cb88c 100%);
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding-bottom: 50%;
-            position: relative;
-            flex-direction: column;
-        }
+.title-screen {
+    text-align: center;
+    color: white;
+    animation: fadeIn 1s ease-in;
+    background: linear-gradient(135deg, #4a7c4a 0%, #6b9b6b 50%, #8cb88c 100%);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 50%;
+    position: relative;
+    flex-direction: column;
+}
+
+.title-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://raw.githubusercontent.com/radiocureaa/Flora/dc04cf6307609d8273daf5fc0da9028c46d57f10/floraintro.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
 
         @keyframes fadeIn {
             from { opacity: 0; }
