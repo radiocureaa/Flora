@@ -91,7 +91,6 @@
     width: 100%;
     max-width: 800px;
     padding: 40px;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -1026,7 +1025,7 @@
 
         function startGarden() {
             document.getElementById('titleScreen').style.display = 'none';
-            document.getElementById('gardenScreen').style.display = 'block';
+            document.getElementById('gardenScreen').style.display = 'flex';
             
             // Load saved data before rendering
             loadGardenData();
