@@ -1154,6 +1154,10 @@
                 
                 // Save to localStorage
                 saveGardenData();
+                 // Go back to garden if currently on friend screen
+        if (currentFriendId !== null) {
+            backToGarden();
+               }
             }
         }
 
