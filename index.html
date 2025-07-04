@@ -36,31 +36,9 @@
             flex-direction: column;
         }
 
-        .title-screen::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://raw.githubusercontent.com/radiocureaa/Flora/main/floraintro.png');
-            background-size: cover;
-            background-position: center top;
-            background-repeat: no-repeat;
-            z-index: 0;
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        .title-screen h1 {
-            display: none;
-        }
-
-        .title-screen p {
-            display: none;
         }
 
         .start-button {
@@ -75,7 +53,10 @@
             transition: all 0.3s ease;
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
             position: absolute;
-            z-index: 10; top: 58%; left: 50%; transform: translate(-50%, -50%);
+            z-index: 10; 
+            top: 58%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
             backdrop-filter: blur(5px);
         }
 
@@ -86,36 +67,32 @@
         }
 
         /* Garden Screen */
-       .garden-screen {
-    display: none;
-    width: 100%;
-    width: 100vw;
-    max-width: none;
-    padding: 40px;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 15%;
-    align-items: center;
-    animation: slideIn 0.6s ease-out;
-    background-image: url('https://raw.githubusercontent.com/radiocureaa/Flora/main/gardenbackground.png');
-    background-size: cover;
-    background-color: #4a7c4a;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+        .garden-screen {
+            display: none;
+            width: 100vw;
+            max-width: none;
+            padding: 40px;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding-bottom: 15%;
+            align-items: center;
+            animation: slideIn 0.6s ease-out;
+            background-image: url('https://raw.githubusercontent.com/radiocureaa/Flora/main/gardenbackground.png');
+            background-size: cover;
+            background-color: #4a7c4a;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
 
         @keyframes slideIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
-        }
-
-        .garden-title {
-            text-align: center;
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .garden-grid {
@@ -235,6 +212,118 @@
             }
         }
 
+        /* Garden flower growth stages */
+        .small-flower {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 40px;
+            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
+            border-radius: 3px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .small-flower::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FFB6C1 30%, #FF69B4 70%);
+            border-radius: 50%;
+            border: 2px solid #228B22;
+        }
+
+        .small-flower::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: -4px;
+            width: 8px;
+            height: 6px;
+            background: #90EE90;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
+        .budding-flower {
+            position: absolute;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 45px;
+            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
+            border-radius: 4px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .budding-flower::before {
+            content: '';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: radial-gradient(circle, #FFD700 30%, #FF8C00 70%);
+            border-radius: 50%;
+            border: 3px solid #228B22;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .budding-flower::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: -5px;
+            width: 10px;
+            height: 8px;
+            background: #90EE90;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
+        .blooming-flower {
+            position: absolute;
+            top: -55px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 50px;
+            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
+            border-radius: 5px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .blooming-flower::before {
+            content: '';
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, #FFD700 20%, #FF8C00 40%, #FF6347 80%);
+            border-radius: 50%;
+            border: 4px solid #228B22;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+            animation: fullBloomGlow 3s ease-in-out infinite alternate;
+        }
+
+        .blooming-flower::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: -6px;
+            width: 12px;
+            height: 10px;
+            background: #90EE90;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
         /* Friend Name Label */
         .friend-name {
             text-align: center;
@@ -327,41 +416,30 @@
             margin-top: 3px;
         }
 
-        .delete-button {
-            width: 100%;
-            background: #dc3545;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .delete-button:hover {
-            background: #c82333;
-            transform: translateY(-1px);
-        }
-
         /* Friend Screen */
         .friend-screen {
             display: none;
             width: 100%;
-            max-width: 500px;
+            max-width: 900px;
             padding: 80px 40px 40px;
             animation: slideIn 0.6s ease-out;
             text-align: center;
+            position: fixed;
+            top: 15vh;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://raw.githubusercontent.com/radiocureaa/Flora/da8f0355e721f48897e39b749dddc3a960cd0f6e/friendscreen.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #4a7c4a;
+            overflow-y: auto;
+            margin: 0 auto;
         }
 
-        .friend-header {
-            margin-bottom: 30px;
-            margin-top: 60px;
-        }
-
-        .back-button {
-            position: absolute;
+        .friend-screen .back-button {
+            position: fixed;
             top: 40px;
             left: 40px;
             background: rgba(255, 248, 220, 0.9);
@@ -373,6 +451,28 @@
             font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .friend-header {
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 40px;
+            left: 40px;
+            background: rgba(255, 248, 220, 0.9);
+            color: #4a7c4a;
+            border: 2px solid #4a7c4a;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 1000;
         }
 
         .back-button:hover {
@@ -383,7 +483,7 @@
 
         .friend-name-large {
             color: white;
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 10px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
@@ -394,92 +494,121 @@
             margin-bottom: 30px;
         }
 
+        /* Friend Screen Layout */
+        .friend-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            margin-top: 30px;
+            justify-content: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .left-panel, .right-panel {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .center-panel {
+            flex: 1;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         /* Large Flower Display */
         .large-flower-container {
-            margin: 0 auto 30px;
+            margin: 10vh auto 30px;
             position: relative;
         }
 
         .large-flower-pot {
-            width: 160px;
-            height: 120px;
+            width: 320px;
+            height: 240px;
             margin: 0 auto;
             background: linear-gradient(180deg, #cd853f 0%, #a0522d 100%);
-            border-radius: 0 0 80px 80px;
+            border-radius: 0 0 160px 160px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
             position: relative;
-            border: 3px solid #8b4513;
+            border: 6px solid #8b4513;
+            margin-top: 180px;
+            z-index: 10;
         }
 
         .large-flower-pot::before {
             content: '';
             position: absolute;
-            top: -8px;
-            left: -6px;
-            right: -6px;
-            height: 16px;
+            top: -16px;
+            left: -12px;
+            right: -12px;
+            height: 32px;
             background: linear-gradient(180deg, #daa520 0%, #cd853f 100%);
-            border-radius: 8px;
-            border: 3px solid #8b4513;
+            border-radius: 16px;
+            border: 6px solid #8b4513;
+            z-index: 15;
         }
 
         /* Dynamic Flower Growth States */
         .large-flower {
             position: absolute;
-            top: -60px;
+            top: -140px;
             left: 50%;
             transform: translateX(-50%);
             transition: all 0.8s ease;
+            z-index: 5;
         }
 
         /* Sapling (0-25%) */
         .large-flower.stage-sapling {
-            width: 6px;
-            height: 50px;
+            width: 12px;
+            height: 100px;
             background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 3px;
+            border-radius: 6px;
         }
 
         .large-flower.stage-sapling::before {
             content: '';
             position: absolute;
             top: 0;
-            left: -4px;
-            width: 14px;
-            height: 10px;
+            left: -8px;
+            width: 28px;
+            height: 20px;
             background: #90EE90;
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 0 8px rgba(144, 238, 144, 0.6);
+            box-shadow: 0 0 16px rgba(144, 238, 144, 0.6);
         }
 
         .large-flower.stage-sapling::after {
             content: '';
             position: absolute;
-            top: 5px;
-            right: -4px;
-            width: 10px;
-            height: 8px;
+            top: 10px;
+            right: -8px;
+            width: 20px;
+            height: 16px;
             background: #90EE90;
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
         }
 
         /* Budding (25-50%) */
         .large-flower.stage-budding {
-            width: 30px;
-            height: 70px;
+            width: 60px;
+            height: 140px;
         }
 
         .large-flower.stage-budding::before {
             content: '';
             position: absolute;
-            top: -15px;
+            top: -30px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             background: radial-gradient(circle, #FFB6C1 30%, #FF69B4 70%);
             border-radius: 50%;
-            border: 2px solid #228B22;
+            border: 4px solid #228B22;
         }
 
         .large-flower.stage-budding::after {
@@ -488,30 +617,30 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 8px;
-            height: 70px;
+            width: 16px;
+            height: 140px;
             background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 4px;
+            border-radius: 8px;
         }
 
         /* Blooming (50-75%) */
         .large-flower.stage-blooming {
-            width: 60px;
-            height: 80px;
+            width: 120px;
+            height: 160px;
         }
 
         .large-flower.stage-blooming::before {
             content: '';
             position: absolute;
-            top: -25px;
+            top: -50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
+            width: 100px;
+            height: 100px;
             background: radial-gradient(circle, #FFD700 30%, #FF8C00 70%);
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-            border: 3px solid #FF6347;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            border: 6px solid #FF6347;
         }
 
         .large-flower.stage-blooming::after {
@@ -520,30 +649,30 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 10px;
-            height: 80px;
+            width: 20px;
+            height: 160px;
             background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 5px;
+            border-radius: 10px;
         }
 
         /* Full Bloom (75-100%) */
         .large-flower.stage-full {
-            width: 80px;
-            height: 90px;
+            width: 160px;
+            height: 180px;
         }
 
         .large-flower.stage-full::before {
             content: '';
             position: absolute;
-            top: -35px;
+            top: -70px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 70px;
+            width: 140px;
+            height: 140px;
             background: radial-gradient(circle, #FFD700 20%, #FF8C00 40%, #FF6347 80%);
             border-radius: 50%;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-            border: 4px solid #8B4513;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+            border: 8px solid #8B4513;
             animation: fullBloomGlow 3s ease-in-out infinite alternate;
         }
 
@@ -553,15 +682,15 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 12px;
-            height: 90px;
+            width: 24px;
+            height: 180px;
             background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 6px;
+            border-radius: 12px;
         }
 
         @keyframes fullBloomGlow {
-            0% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8); }
-            100% { box-shadow: 0 0 35px rgba(255, 215, 0, 1); }
+            0% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
+            100% { box-shadow: 0 0 70px rgba(255, 215, 0, 1); }
         }
 
         /* Relationship Strength Display */
@@ -570,8 +699,9 @@
             border: 2px solid #4a7c4a;
             border-radius: 20px;
             padding: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         .strength-title {
@@ -610,6 +740,7 @@
             border-radius: 20px;
             padding: 20px;
             backdrop-filter: blur(5px);
+            width: 100%;
         }
 
         .activity-title {
@@ -670,6 +801,97 @@
 
         .activity-cooldown {
             color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .remove-section {
+            margin-top: 20px;
+        }
+
+        .remove-friend-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .remove-friend-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        /* Activity Log Section */
+        .activity-log-section {
+            background: rgba(255, 248, 220, 0.9);
+            border: 2px solid #4a7c4a;
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .activity-log-title {
+            color: #4a7c4a;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .activity-log-list {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .activity-log-empty {
+            font-style: italic;
+            color: #999;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+        }
+
+        .activity-log-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            border-left: 4px solid #4a7c4a;
+            animation: slideInActivity 0.3s ease-out;
+        }
+
+        @keyframes slideInActivity {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .activity-log-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .activity-name {
+            font-weight: 600;
+            color: #4a7c4a;
+            font-size: 14px;
+        }
+
+        .activity-date {
+            font-size: 12px;
+            color: #6b9b6b;
+        }
+
+        .activity-boost {
+            font-size: 12px;
+            color: #228B22;
             font-weight: bold;
         }
 
@@ -857,10 +1079,6 @@
 
         /* Responsive */
         @media (max-width: 600px) {
-            .title-screen h1 {
-                font-size: 3rem;
-            }
-            
             .garden-grid {
                 gap: 20px;
                 flex-direction: column;
@@ -876,9 +1094,22 @@
                 margin: 20px;
                 min-width: auto;
             }
+
+            .friend-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .left-panel, .right-panel, .center-panel {
+                max-width: 100%;
+            }
+
+            .large-flower-pot {
+                width: 240px;
+                height: 180px;
+            }
         }
 
-        /* Hidden class */
         .hidden {
             display: none;
         }
@@ -887,8 +1118,6 @@
 <body>
     <!-- Title Screen -->
     <div id="titleScreen" class="title-screen">
-        <h1>Flora</h1>
-        <p>The future of friendship</p>
         <button class="start-button" onclick="startGarden()">Enter Your Garden</button>
     </div>
 
@@ -900,44 +1129,60 @@
         <button class="reset-button" onclick="confirmReset()">Reset Garden</button>
     </div>
 
+    <!-- Back Button (independent of friend screen) -->
+    <button class="back-button" id="backButton" onclick="backToGarden()" style="display: none;">← Back to Garden</button>
+
     <!-- Friend Screen -->
     <div id="friendScreen" class="friend-screen">
-        <button class="back-button" onclick="backToGarden()">← Back to Garden</button>
-        
         <div class="friend-header">
             <h2 class="friend-name-large" id="friendNameLarge">Friend Name</h2>
-            <p class="friend-subtitle">Your friendship flower</p>
         </div>
 
-        <div class="large-flower-container">
-            <div class="large-flower-pot">
-                <div class="large-flower stage-sapling" id="largeFlower"></div>
+        <div class="friend-content">
+            <div class="left-panel">
+                <div class="strength-display">
+                    <div class="strength-title">Relationship Strength</div>
+                    <div class="large-strength-bar">
+                        <div class="large-strength-fill" id="friendStrengthFill" style="width: 25%"></div>
+                    </div>
+                    <div class="strength-percentage"><span id="friendStrengthValue">25</span>%</div>
+                </div>
+                
+                <div class="activity-section">
+                    <div class="activity-title">Log an Activity</div>
+                    <select class="activity-dropdown" id="activityDropdown">
+                        <option value="">Choose an activity...</option>
+                        <option value="sent-article">Sent Article (+5%)</option>
+                        <option value="sent-photo">Sent Photo (+8%)</option>
+                        <option value="text-checkin">Text Check-in (+12%)</option>
+                        <option value="phone-call">Phone Call (+18%)</option>
+                        <option value="irl-hang">IRL Hangout (+25%)</option>
+                    </select>
+                    <button class="log-activity-btn" id="logActivityBtn" onclick="logActivity()">Log Activity</button>
+                    <div class="last-activity" id="lastActivity">No activities logged yet</div>
+                </div>
+                <div class="remove-section">
+                    <button class="remove-friend-btn" onclick="confirmDelete(currentFriendId)">Remove Friend</button>
+                </div>
+            </div>
+
+            <div class="center-panel">
+                <div class="large-flower-container">
+                    <div class="large-flower-pot">
+                        <div class="large-flower stage-sapling" id="largeFlower"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="activity-log-section" id="activityLogSection">
+                    <div class="activity-log-title">Activity Log</div>
+                    <div class="activity-log-list" id="activityLogList">
+                        <div class="activity-log-empty">the activities you log will go here</div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="strength-display">
-            <div class="strength-title">Relationship Strength</div>
-            <div class="large-strength-bar">
-                <div class="large-strength-fill" id="friendStrengthFill" style="width: 25%"></div>
-            </div>
-            <div class="strength-percentage"><span id="friendStrengthValue">25</span>%</div>
-        </div>
-
-        <div class="activity-section">
-            <div class="activity-title">Log an Activity</div>
-            <select class="activity-dropdown" id="activityDropdown">
-                <option value="">Choose an activity...</option>
-                <option value="sent-article">Sent Article (+5%)</option>
-                <option value="sent-photo">Sent Photo (+8%)</option>
-                <option value="text-checkin">Text Check-in (+12%)</option>
-                <option value="phone-call">Phone Call (+18%)</option>
-                <option value="irl-hang">IRL Hangout (+25%)</option>
-            </select>
-            <button class="log-activity-btn" id="logActivityBtn" onclick="logActivity()">Log Activity</button>
-            <div class="last-activity" id="lastActivity">No activities logged yet</div>
-        </div> <div class="remove-section">
-    <button class="remove-friend-btn" onclick="confirmDelete(currentFriendId)">Remove Friend</button>
-</div>
     </div>
 
     <!-- Modal Dialog -->
@@ -977,16 +1222,14 @@
     </div>
 
     <script>
-        // Garden state - stores which plots have friends
         let gardenSlots = [
-            { id: 0, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-            { id: 1, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-            { id: 2, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-            { id: 3, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-            { id: 4, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null }
+            { id: 0, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+            { id: 1, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+            { id: 2, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+            { id: 3, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+            { id: 4, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] }
         ];
 
-        // Activity types and their weights
         const activityTypes = {
             'sent-article': { name: 'Sent Article', weight: 5 },
             'sent-photo': { name: 'Sent Photo', weight: 8 },
@@ -998,29 +1241,16 @@
         let currentPlotId = null;
         let deleteConfirmId = null;
         let currentFriendId = null;
+        let gardenData = {};
 
-        // Local Storage Functions
         function saveGardenData() {
-            try {
-                localStorage.setItem('floraGardenData', JSON.stringify(gardenSlots));
-            } catch (e) {
-                console.warn('Could not save garden data to localStorage:', e);
-            }
+            gardenData = JSON.parse(JSON.stringify(gardenSlots));
         }
 
         function loadGardenData() {
-            try {
-                const savedData = localStorage.getItem('floraGardenData');
-                if (savedData) {
-                    const parsed = JSON.parse(savedData);
-                    // Validate the data structure
-                    if (Array.isArray(parsed) && parsed.length === 5) {
-                        gardenSlots = parsed;
-                        return true;
-                    }
-                }
-            } catch (e) {
-                console.warn('Could not load garden data from localStorage:', e);
+            if (gardenData && Array.isArray(gardenData) && gardenData.length === 5) {
+                gardenSlots = JSON.parse(JSON.stringify(gardenData));
+                return true;
             }
             return false;
         }
@@ -1028,8 +1258,6 @@
         function startGarden() {
             document.getElementById('titleScreen').style.display = 'none';
             document.getElementById('gardenScreen').style.display = 'flex';
-            
-            // Load saved data before rendering
             loadGardenData();
             renderGarden();
         }
@@ -1044,16 +1272,21 @@
                 
                 if (slot.planted) {
                     plotElement.onclick = () => openFriendScreen(slot.id);
-                } else {
-                    plotElement.onclick = () => activatePlot(slot.id);
-                }
-
-                if (slot.planted) {
-                    // Active plot with sapling and hover popup
+                    
+                    // Determine flower class based on strength for garden display
+                    let flowerClass = 'sapling';
+                    if (slot.strength >= 75) {
+                        flowerClass = 'blooming-flower';
+                    } else if (slot.strength >= 50) {
+                        flowerClass = 'budding-flower';
+                    } else if (slot.strength >= 25) {
+                        flowerClass = 'small-flower';
+                    }
+                    
                     plotElement.innerHTML = `
                         <div class="plot-active">
                             <div class="flower-pot">
-                                <div class="sapling"></div>
+                                <div class="${flowerClass}"></div>
                             </div>
                             <div class="friend-name">${slot.friendName}</div>
                             <div class="hover-popup">
@@ -1063,27 +1296,18 @@
                                     <div class="strength-bar">
                                         <div class="strength-fill" style="width: ${slot.strength}%"></div>
                                     </div>
-                                    <div class="strength-text">${slot.strength}%</div>
+                                    <div class="strength-text">${Math.round(slot.strength)}%</div>
                                 </div>
                             </div>
                         </div>
                     `;
                     
-                    // Add hover events
                     const popup = plotElement.querySelector('.hover-popup');
-                    plotElement.addEventListener('mouseenter', () => {
-                        popup.classList.add('show');
-                    });
-                    plotElement.addEventListener('mouseleave', () => {
-                        popup.classList.remove('show');
-                    });
+                    plotElement.addEventListener('mouseenter', () => popup.classList.add('show'));
+                    plotElement.addEventListener('mouseleave', () => popup.classList.remove('show'));
                 } else {
-                    // Empty plot
-                    plotElement.innerHTML = `
-                        <div class="plot-empty">
-                            +
-                        </div>
-                    `;
+                    plotElement.onclick = () => activatePlot(slot.id);
+                    plotElement.innerHTML = '<div class="plot-empty">+</div>';
                 }
 
                 grid.appendChild(plotElement);
@@ -1091,7 +1315,6 @@
         }
 
         function activatePlot(plotId) {
-            // Only allow activation if plot is empty
             if (!gardenSlots[plotId].planted) {
                 currentPlotId = plotId;
                 document.getElementById('modalOverlay').style.display = 'flex';
@@ -1109,39 +1332,22 @@
             const friendName = document.getElementById('friendNameInput').value.trim();
             
             if (friendName && currentPlotId !== null) {
-                // Update the garden state
                 gardenSlots[currentPlotId].friendName = friendName;
                 gardenSlots[currentPlotId].planted = true;
-                gardenSlots[currentPlotId].strength = 25; // Start with 25% strength
-                gardenSlots[currentPlotId].lastActivity = null; // Don't set activity on planting
+                gardenSlots[currentPlotId].strength = 25;
+                gardenSlots[currentPlotId].lastActivity = null;
                 gardenSlots[currentPlotId].lastDecay = new Date().toISOString();
+                gardenSlots[currentPlotId].activityHistory = [];
                 
-                // Close modal and re-render garden
                 closeModal();
                 renderGarden();
-                
-                // Save to localStorage
                 saveGardenData();
-                
-                // Add a small celebration effect
-                setTimeout(() => {
-                    const plots = document.querySelectorAll('.plot-slot');
-                    if (plots[currentPlotId]) {
-                        plots[currentPlotId].style.transform = 'scale(1.1)';
-                        setTimeout(() => {
-                            if (plots[currentPlotId]) {
-                                plots[currentPlotId].style.transform = 'scale(1)';
-                            }
-                        }, 300);
-                    }
-                }, 100);
             }
         }
 
         function confirmDelete(plotId) {
             deleteConfirmId = plotId;
-            const friendName = gardenSlots[plotId].friendName;
-            document.getElementById('confirmFriendName').textContent = friendName;
+            document.getElementById('confirmFriendName').textContent = gardenSlots[plotId].friendName;
             document.getElementById('confirmOverlay').style.display = 'flex';
         }
 
@@ -1152,23 +1358,23 @@
 
         function deleteFriend() {
             if (deleteConfirmId !== null) {
-                // Reset the plot
-                gardenSlots[deleteConfirmId].friendName = null;
-                gardenSlots[deleteConfirmId].planted = false;
-                gardenSlots[deleteConfirmId].strength = 0;
-                gardenSlots[deleteConfirmId].lastActivity = null;
-                gardenSlots[deleteConfirmId].lastDecay = null;
+                gardenSlots[deleteConfirmId] = { 
+                    id: deleteConfirmId, 
+                    friendName: null, 
+                    planted: false, 
+                    strength: 0, 
+                    lastActivity: null, 
+                    lastDecay: null, 
+                    activityHistory: [] 
+                };
                 
-                // Close confirmation and re-render
                 cancelDelete();
                 renderGarden();
-                
-                // Save to localStorage
                 saveGardenData();
-                 // Go back to garden if currently on friend screen
-        if (currentFriendId !== null) {
-            backToGarden();
-               }
+                
+                if (currentFriendId !== null) {
+                    backToGarden();
+                }
             }
         }
 
@@ -1176,25 +1382,24 @@
             currentFriendId = friendId;
             const friend = gardenSlots[friendId];
             
-            // Update friend screen content
             document.getElementById('friendNameLarge').textContent = friend.friendName;
             document.getElementById('friendStrengthValue').textContent = Math.round(friend.strength);
             document.getElementById('friendStrengthFill').style.width = friend.strength + '%';
             
-            // Update flower visual based on strength
             updateFlowerStage(friend.strength);
-            
-            // Update activity section
             updateActivitySection(friend);
+            updateActivityLog(friend);
             
-            // Hide garden, show friend screen
             document.getElementById('gardenScreen').style.display = 'none';
             document.getElementById('friendScreen').style.display = 'block';
+            document.getElementById('backButton').style.display = 'block';
         }
 
         function backToGarden() {
             document.getElementById('friendScreen').style.display = 'none';
-            document.getElementById('gardenScreen').style.display = 'block';
+            document.getElementById('backButton').style.display = 'none';
+            const gardenScreen = document.getElementById('gardenScreen');
+            gardenScreen.style.display = 'flex';
             currentFriendId = null;
         }
 
@@ -1213,25 +1418,44 @@
             }
         }
 
+        function updateActivityLog(friend) {
+            const activityLogSection = document.getElementById('activityLogSection');
+            const activityLogList = document.getElementById('activityLogList');
+            
+            if (!friend.activityHistory || friend.activityHistory.length === 0) {
+                activityLogList.innerHTML = '<div class="activity-log-empty">the activities you log will go here</div>';
+            } else {
+                activityLogList.innerHTML = '';
+                
+                const sortedActivities = [...friend.activityHistory].sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                sortedActivities.forEach(activity => {
+                    const activityItem = document.createElement('div');
+                    activityItem.className = 'activity-log-item';
+                    activityItem.innerHTML = `
+                        <div>
+                            <div class="activity-name">${activity.name}</div>
+                            <div class="activity-date">${new Date(activity.date).toLocaleDateString()}</div>
+                        </div>
+                        <div class="activity-boost">+${activity.weight}%</div>
+                    `;
+                    activityLogList.appendChild(activityItem);
+                });
+            }
+        }
+
         function updateActivitySection(friend) {
             const button = document.getElementById('logActivityBtn');
             const lastActivityDiv = document.getElementById('lastActivity');
             
-            // Check if activity was logged today
-            const today = new Date().toDateString();
-            const lastActivityDate = friend.lastActivity ? new Date(friend.lastActivity).toDateString() : null;
-            const canLogToday = lastActivityDate !== today;
+            // Always enable the button
+            button.disabled = false;
+            button.textContent = 'Log Activity';
             
-            button.disabled = !canLogToday;
-            
-            if (canLogToday) {
-                button.textContent = 'Log Activity';
-                lastActivityDiv.innerHTML = friend.lastActivity ? 
-                    `Last activity: ${new Date(friend.lastActivity).toLocaleDateString()}` : 
-                    'No activities logged yet';
+            if (friend.lastActivity) {
+                lastActivityDiv.innerHTML = `Last activity: ${new Date(friend.lastActivity).toLocaleDateString()}`;
             } else {
-                button.textContent = 'Already logged today';
-                lastActivityDiv.innerHTML = '<span class="activity-cooldown">Come back tomorrow to log another activity!</span>';
+                lastActivityDiv.innerHTML = 'No activities logged yet';
             }
         }
 
@@ -1243,68 +1467,30 @@
             
             if (!activityType || !activityTypes[activityType]) return;
             
-            // Check daily limit
-            const today = new Date().toDateString();
-            const lastActivityDate = friend.lastActivity ? new Date(friend.lastActivity).toDateString() : null;
-            if (lastActivityDate === today) return;
-            
-            // Add strength based on activity weight
             const weight = activityTypes[activityType].weight;
             friend.strength = Math.min(100, friend.strength + weight);
             friend.lastActivity = new Date().toISOString();
             
-            // Update displays
+            if (!friend.activityHistory) {
+                friend.activityHistory = [];
+            }
+            friend.activityHistory.push({
+                name: activityTypes[activityType].name,
+                weight: weight,
+                date: new Date().toISOString()
+            });
+            
             document.getElementById('friendStrengthValue').textContent = Math.round(friend.strength);
             document.getElementById('friendStrengthFill').style.width = friend.strength + '%';
             updateFlowerStage(friend.strength);
             updateActivitySection(friend);
+            updateActivityLog(friend);
             
-            // Update garden view
             renderGarden();
-            
-            // Save to localStorage
             saveGardenData();
             
-            // Visual feedback
-            const flower = document.getElementById('largeFlower');
-            flower.style.transform = 'translateX(-50%) scale(1.1)';
-            setTimeout(() => {
-                flower.style.transform = 'translateX(-50%) scale(1)';
-            }, 300);
-        }
-
-        function applyWeeklyDecay() {
-            const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
-            const now = new Date();
-            
-            gardenSlots.forEach(slot => {
-                if (slot.planted && slot.lastActivity) {
-                    const lastActivity = new Date(slot.lastActivity);
-                    const weeksSinceActivity = Math.floor((now - lastActivity) / oneWeek);
-                    
-                    if (weeksSinceActivity > 0) {
-                        // Apply decay: -10% per week of inactivity
-                        const decayAmount = weeksSinceActivity * 10;
-                        slot.strength = Math.max(0, slot.strength - decayAmount);
-                        
-                        // Update last decay check
-                        slot.lastDecay = now.toISOString();
-                    }
-                }
-            });
-            
-            // Re-render if we're currently viewing the garden
-            if (document.getElementById('gardenScreen').style.display !== 'none') {
-                renderGarden();
-            }
-            
-            // Update friend screen if currently viewing a friend
-            if (currentFriendId !== null) {
-                const friend = gardenSlots[currentFriendId];
-                document.getElementById('friendStrengthValue').textContent = Math.round(friend.strength);
-                document.getElementById('friendStrengthFill').style.width = friend.strength + '%';
-                updateFlowerStage(friend.strength);
-            }
+            // Reset the dropdown to default
+            document.getElementById('activityDropdown').value = '';
         }
 
         function confirmReset() {
@@ -1316,49 +1502,33 @@
         }
 
         function resetGarden() {
-            // Reset all garden slots to default state
             gardenSlots = [
-                { id: 0, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-                { id: 1, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-                { id: 2, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-                { id: 3, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null },
-                { id: 4, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null }
+                { id: 0, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+                { id: 1, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+                { id: 2, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+                { id: 3, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] },
+                { id: 4, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] }
             ];
             
-            // Clear localStorage
-            localStorage.removeItem('floraGardenData');
-            
-            // Close confirmation and re-render
+            gardenData = {};
             cancelReset();
             renderGarden();
             
-            // If currently viewing a friend screen, go back to garden
             if (currentFriendId !== null) {
                 backToGarden();
             }
         }
 
-        // Allow Enter key to plant friend
         document.getElementById('friendNameInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 plantFriend();
             }
         });
 
-        // Close modal when clicking outside
         document.getElementById('modalOverlay').addEventListener('click', function(e) {
             if (e.target === this) {
                 closeModal();
             }
-        });
-
-        // Initialize the app
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check for weekly decay on app load
-            applyWeeklyDecay();
-            
-            // Set up weekly decay check (runs every hour to catch weekly boundaries)
-            setInterval(applyWeeklyDecay, 60 * 60 * 1000);
         });
     </script>
 </body>
