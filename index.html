@@ -21,34 +21,34 @@
         }
 
         /* Title Screen */
-.title-screen {
-    text-align: center;
-    color: white;
-    animation: fadeIn 1s ease-in;
-    background: linear-gradient(135deg, #4a7c4a 0%, #6b9b6b 50%, #8cb88c 100%);
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding-bottom: 50%;
-    position: relative;
-    flex-direction: column;
-}
+        .title-screen {
+            text-align: center;
+            color: white;
+            animation: fadeIn 1s ease-in;
+            background: linear-gradient(135deg, #4a7c4a 0%, #6b9b6b 50%, #8cb88c 100%);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 50%;
+            position: relative;
+            flex-direction: column;
+        }
 
-.title-screen::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('https://raw.githubusercontent.com/radiocureaa/Flora/dc04cf6307609d8273daf5fc0da9028c46d57f10/floraintro.png');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    z-index: 0;
-}
+        .title-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://raw.githubusercontent.com/radiocureaa/Flora/dc04cf6307609d8273daf5fc0da9028c46d57f10/floraintro.png');
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
 
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -134,21 +134,42 @@
 
         /* Empty Plot */
         .plot-empty {
-            background: linear-gradient(180deg, #888 0%, #666 100%);
+            background: linear-gradient(180deg, #8B4513 0%, #654321 50%, #5D4037 100%);
             border-radius: 0 0 60px 60px;
-            border: 3px dashed #aaa;
+            border: 3px dashed #A0522D;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ccc;
+            color: #D2B48C;
             font-size: 2rem;
-            opacity: 0.7;
+            opacity: 0.8;
             height: 100%;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .plot-empty::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 2px,
+                rgba(139, 69, 19, 0.3) 2px,
+                rgba(139, 69, 19, 0.3) 4px
+            );
+            border-radius: 0 0 60px 60px;
+            pointer-events: none;
         }
 
         .plot-empty:hover {
             opacity: 1;
-            border-color: #ddd;
+            border-color: #CD853F;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.4), 0 2px 8px rgba(139, 69, 19, 0.3);
         }
 
         /* Active Plot with Pot */
@@ -178,165 +199,268 @@
             border: 2px solid #8b4513;
         }
 
-        /* Sapling */
-        .sapling {
+        /* Garden Flower Growth Stages - Fixed progression: both height and diameter increase */
+        .flower-stage-0 {
             position: absolute;
-            top: -40px;
+            top: -25px;
             left: 50%;
             transform: translateX(-50%);
-            width: 4px;
-            height: 35px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
+            width: 3px;
+            height: 20px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
             border-radius: 2px;
             animation: grow 0.8s ease-out;
         }
 
-        .sapling::before {
-            content: '';
+        .flower-stage-1 {
             position: absolute;
-            top: 0;
-            left: -3px;
-            width: 10px;
-            height: 8px;
-            background: #90EE90;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 0 5px rgba(144, 238, 144, 0.5);
-        }
-
-        .sapling::after {
-            content: '';
-            position: absolute;
-            top: 3px;
-            right: -3px;
-            width: 8px;
-            height: 6px;
-            background: #90EE90;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 0 3px rgba(144, 238, 144, 0.3);
-        }
-
-        @keyframes grow {
-            from { 
-                height: 0; 
-                opacity: 0;
-            }
-            to { 
-                height: 35px; 
-                opacity: 1;
-            }
-        }
-
-        /* Garden flower growth stages */
-        .small-flower {
-            position: absolute;
-            top: -45px;
+            top: -35px;
             left: 50%;
             transform: translateX(-50%);
-            width: 6px;
-            height: 40px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 3px;
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 2px;
             animation: grow 0.8s ease-out;
         }
 
-        .small-flower::before {
+        .flower-stage-1::before {
             content: '';
             position: absolute;
             top: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, #FFB6C1 30%, #FF69B4 70%);
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #F8BBD9 30%, #E91E63 80%);
             border-radius: 50%;
-            border: 2px solid #228B22;
+            border: 1px solid #4CAF50;
+            box-shadow: 0 0 4px rgba(233, 30, 99, 0.4);
         }
 
-        .small-flower::after {
-            content: '';
+        .flower-stage-2 {
             position: absolute;
-            top: 5px;
-            right: -4px;
-            width: 8px;
-            height: 6px;
-            background: #90EE90;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        }
-
-        .budding-flower {
-            position: absolute;
-            top: -50px;
+            top: -45px;
             left: 50%;
             transform: translateX(-50%);
-            width: 8px;
-            height: 45px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 4px;
+            width: 5px;
+            height: 40px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 3px;
             animation: grow 0.8s ease-out;
         }
 
-        .budding-flower::before {
+        .flower-stage-2::before {
             content: '';
             position: absolute;
-            top: -25px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle, #FFD700 30%, #FF8C00 70%);
+            width: 16px;
+            height: 16px;
+            background: radial-gradient(circle, #F8BBD9 30%, #E91E63 80%);
             border-radius: 50%;
-            border: 3px solid #228B22;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+            border: 2px solid #4CAF50;
+            box-shadow: 0 0 6px rgba(233, 30, 99, 0.4);
         }
 
-        .budding-flower::after {
-            content: '';
-            position: absolute;
-            top: 8px;
-            right: -5px;
-            width: 10px;
-            height: 8px;
-            background: #90EE90;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        }
-
-        .blooming-flower {
+        .flower-stage-3 {
             position: absolute;
             top: -55px;
             left: 50%;
             transform: translateX(-50%);
-            width: 10px;
+            width: 6px;
             height: 50px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 3px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .flower-stage-3::before {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #FCE4EC 20%, #F8BBD9 50%, #E91E63 90%);
+            border-radius: 50%;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
+        }
+
+        .flower-stage-4 {
+            position: absolute;
+            top: -65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 7px;
+            height: 60px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 4px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .flower-stage-4::before {
+            content: '';
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: radial-gradient(circle, #FCE4EC 15%, #F8BBD9 40%, #E91E63 80%);
+            border-radius: 50%;
+            border: 3px solid #66BB6A;
+            box-shadow: 0 0 10px rgba(233, 30, 99, 0.6), inset 0 2px 4px rgba(255,255,255,0.3);
+        }
+
+        .flower-stage-5 {
+            position: absolute;
+            top: -75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 70px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 4px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .flower-stage-5::before {
+            content: '';
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 28px;
+            background: radial-gradient(circle, #FFF9C4 15%, #FFEB3B 50%, #FFC107 85%);
+            border-radius: 50%;
+            border: 3px solid #66BB6A;
+            box-shadow: 0 0 12px rgba(255, 193, 7, 0.7), inset 0 3px 6px rgba(255,255,255,0.4);
+        }
+
+        .flower-stage-6 {
+            position: absolute;
+            top: -85px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 9px;
+            height: 80px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
             border-radius: 5px;
             animation: grow 0.8s ease-out;
         }
 
-        .blooming-flower::before {
+        .flower-stage-6::before {
             content: '';
             position: absolute;
-            top: -35px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 70px;
-            background: radial-gradient(circle, #FFD700 20%, #FF8C00 40%, #FF6347 80%);
+            width: 32px;
+            height: 32px;
+            background: radial-gradient(circle, #FFF9C4 10%, #FFEB3B 40%, #FFC107 80%);
             border-radius: 50%;
-            border: 4px solid #228B22;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
-            animation: fullBloomGlow 3s ease-in-out infinite alternate;
+            border: 4px solid #66BB6A;
+            box-shadow: 0 0 15px rgba(255, 193, 7, 0.8), inset 0 4px 8px rgba(255,255,255,0.5);
         }
 
-        .blooming-flower::after {
+        .flower-stage-7 {
+            position: absolute;
+            top: -95px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 90px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 5px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .flower-stage-7::before {
             content: '';
             position: absolute;
-            top: 10px;
-            right: -6px;
-            width: 12px;
-            height: 10px;
-            background: #90EE90;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            top: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 36px;
+            background: radial-gradient(circle, #FFF3E0 10%, #FFB74D 40%, #FF9800 80%);
+            border-radius: 50%;
+            border: 4px solid #66BB6A;
+            box-shadow: 0 0 18px rgba(255, 152, 0, 0.8), inset 0 5px 10px rgba(255,255,255,0.6);
         }
+
+        .flower-stage-8 {
+            position: absolute;
+            top: -105px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 11px;
+            height: 100px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 6px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .flower-stage-8::before {
+            content: '';
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #FFEBEE 8%, #EF5350 35%, #D32F2F 85%);
+            border-radius: 50%;
+            border: 5px solid #66BB6A;
+            box-shadow: 0 0 22px rgba(211, 47, 47, 0.9), inset 0 6px 12px rgba(255,255,255,0.7);
+        }
+
+        .flower-stage-9 {
+            position: absolute;
+            top: -115px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 110px;
+            background: linear-gradient(180deg, #7CB342 0%, #388E3C 100%);
+            border-radius: 6px;
+            animation: grow 0.8s ease-out;
+        }
+
+        .flower-stage-9::before {
+            content: '';
+            position: absolute;
+            top: -26px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 44px;
+            height: 44px;
+            background: conic-gradient(
+                from 0deg,
+                #E91E63 0deg,
+                #9C27B0 60deg,
+                #3F51B5 120deg,
+                #00BCD4 180deg,
+                #4CAF50 240deg,
+                #FFEB3B 300deg,
+                #E91E63 360deg
+            );
+            border-radius: 50%;
+            border: 6px solid #66BB6A;
+            box-shadow: 
+                0 0 25px rgba(233, 30, 99, 0.8),
+                0 0 40px rgba(76, 175, 80, 0.6),
+                inset 0 8px 16px rgba(255,255,255,0.8);
+            animation: rainbowGlow 3s ease-in-out infinite alternate;
+        }
+
+        /* Garden Flower Growth Stages - Original styles for garden view */
+
 
         /* Friend Name Label */
         .friend-name {
@@ -434,12 +558,12 @@
         .friend-screen {
             display: none;
             width: 100%;
-            max-width: 900px;
+            max-width: none;
             padding: 80px 40px 40px;
             animation: slideIn 0.6s ease-out;
             text-align: center;
             position: fixed;
-            top: 15vh;
+            top: 0;
             left: 0;
             right: 0;
             bottom: 0;
@@ -449,28 +573,7 @@
             background-repeat: no-repeat;
             background-color: #4a7c4a;
             overflow-y: auto;
-            margin: 0 auto;
-        }
-
-        .friend-screen .back-button {
-            position: fixed;
-            top: 40px;
-            left: 40px;
-            background: rgba(255, 248, 220, 0.9);
-            color: #4a7c4a;
-            border: 2px solid #4a7c4a;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .friend-header {
-            margin-bottom: 10px;
-            margin-top: 20px;
+            margin: 0;
         }
 
         .back-button {
@@ -502,12 +605,6 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .friend-subtitle {
-            color: rgba(255,255,255,0.8);
-            font-size: 1rem;
-            margin-bottom: 30px;
-        }
-
         /* Friend Screen Layout */
         .friend-content {
             display: flex;
@@ -537,6 +634,7 @@
         .large-flower-container {
             margin: 10vh auto 30px;
             position: relative;
+            height: 400px;
         }
 
         .large-flower-pot {
@@ -546,10 +644,12 @@
             background: linear-gradient(180deg, #cd853f 0%, #a0522d 100%);
             border-radius: 0 0 160px 160px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            position: relative;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             border: 6px solid #8b4513;
-            margin-top: 180px;
-            z-index: 10;
+            z-index: 200;
         }
 
         .large-flower-pot::before {
@@ -562,149 +662,67 @@
             background: linear-gradient(180deg, #daa520 0%, #cd853f 100%);
             border-radius: 16px;
             border: 6px solid #8b4513;
-            z-index: 15;
+            z-index: 201;
         }
 
-        /* Dynamic Flower Growth States */
-        .large-flower {
+        /* FIXED: Large Friend Flowers - Same as garden but scaled up 3x */
+        .large-friend-flower {
             position: absolute;
-            top: -140px;
+            bottom: 240px; /* At pot rim level */
             left: 50%;
-            transform: translateX(-50%);
-            transition: all 0.8s ease;
-            z-index: 5;
+            transform-origin: bottom center;
+            z-index: 50;
         }
 
-        /* Sapling (0-25%) */
-        .large-flower.stage-sapling {
-            width: 12px;
-            height: 100px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 6px;
+        /* Scale up the garden flowers for friend screen */
+        .large-friend-flower.flower-stage-0 {
+            transform: translateX(-50%) scale(3);
         }
 
-        .large-flower.stage-sapling::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -8px;
-            width: 28px;
-            height: 20px;
-            background: #90EE90;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            box-shadow: 0 0 16px rgba(144, 238, 144, 0.6);
+        .large-friend-flower.flower-stage-1 {
+            transform: translateX(-50%) scale(3);
         }
 
-        .large-flower.stage-sapling::after {
-            content: '';
-            position: absolute;
-            top: 10px;
-            right: -8px;
-            width: 20px;
-            height: 16px;
-            background: #90EE90;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        .large-friend-flower.flower-stage-2 {
+            transform: translateX(-50%) scale(3);
         }
 
-        /* Budding (25-50%) */
-        .large-flower.stage-budding {
-            width: 60px;
-            height: 140px;
+        .large-friend-flower.flower-stage-3 {
+            transform: translateX(-50%) scale(3);
         }
 
-        .large-flower.stage-budding::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 40px;
-            background: radial-gradient(circle, #FFB6C1 30%, #FF69B4 70%);
-            border-radius: 50%;
-            border: 4px solid #228B22;
+        .large-friend-flower.flower-stage-4 {
+            transform: translateX(-50%) scale(3);
         }
 
-        .large-flower.stage-budding::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 140px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 8px;
+        .large-friend-flower.flower-stage-5 {
+            transform: translateX(-50%) scale(3);
         }
 
-        /* Blooming (50-75%) */
-        .large-flower.stage-blooming {
-            width: 120px;
-            height: 160px;
+        .large-friend-flower.flower-stage-6 {
+            transform: translateX(-50%) scale(3);
         }
 
-        .large-flower.stage-blooming::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, #FFD700 30%, #FF8C00 70%);
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-            border: 6px solid #FF6347;
+        .large-friend-flower.flower-stage-7 {
+            transform: translateX(-50%) scale(3);
         }
 
-        .large-flower.stage-blooming::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 160px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 10px;
+        .large-friend-flower.flower-stage-8 {
+            transform: translateX(-50%) scale(3);
         }
 
-        /* Full Bloom (75-100%) */
-        .large-flower.stage-full {
-            width: 160px;
-            height: 180px;
+        .large-friend-flower.flower-stage-9 {
+            transform: translateX(-50%) scale(3);
         }
 
-        .large-flower.stage-full::before {
-            content: '';
-            position: absolute;
-            top: -70px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 140px;
-            height: 140px;
-            background: radial-gradient(circle, #FFD700 20%, #FF8C00 40%, #FF6347 80%);
-            border-radius: 50%;
-            box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
-            border: 8px solid #8B4513;
-            animation: fullBloomGlow 3s ease-in-out infinite alternate;
-        }
-
-        .large-flower.stage-full::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 24px;
-            height: 180px;
-            background: linear-gradient(180deg, #90EE90 0%, #228B22 100%);
-            border-radius: 12px;
-        }
-
-        @keyframes fullBloomGlow {
-            0% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
-            100% { box-shadow: 0 0 70px rgba(255, 215, 0, 1); }
+        @keyframes grow {
+            from { 
+                height: 0; 
+                opacity: 0;
+            }
+            to { 
+                opacity: 1;
+            }
         }
 
         /* Relationship Strength Display */
@@ -811,11 +829,6 @@
             font-size: 12px;
             color: #6b9b6b;
             text-align: center;
-        }
-
-        .activity-cooldown {
-            color: #ff6b6b;
-            font-weight: bold;
         }
 
         .remove-section {
@@ -1143,23 +1156,21 @@
         <button class="reset-button" onclick="confirmReset()">Reset Garden</button>
     </div>
 
-    <!-- Back Button (independent of friend screen) -->
+    <!-- Back Button -->
     <button class="back-button" id="backButton" onclick="backToGarden()" style="display: none;">← Back to Garden</button>
 
     <!-- Friend Screen -->
     <div id="friendScreen" class="friend-screen">
-        <div class="friend-header">
-            <h2 class="friend-name-large" id="friendNameLarge">Friend Name</h2>
-        </div>
+        <h2 class="friend-name-large" id="friendNameLarge">Friend Name</h2>
 
         <div class="friend-content">
             <div class="left-panel">
                 <div class="strength-display">
                     <div class="strength-title">Relationship Strength</div>
                     <div class="large-strength-bar">
-                        <div class="large-strength-fill" id="friendStrengthFill" style="width: 25%"></div>
+                        <div class="large-strength-fill" id="friendStrengthFill" style="width: 0%"></div>
                     </div>
-                    <div class="strength-percentage"><span id="friendStrengthValue">25</span>%</div>
+                    <div class="strength-percentage"><span id="friendStrengthValue">0</span>%</div>
                 </div>
                 
                 <div class="activity-section">
@@ -1183,7 +1194,8 @@
             <div class="center-panel">
                 <div class="large-flower-container">
                     <div class="large-flower-pot">
-                        <div class="large-flower stage-sapling" id="largeFlower"></div>
+                        <!-- Friend flower uses same system as garden but scaled up -->
+                        <div class="large-friend-flower flower-stage-0" id="largeFlower"></div>
                     </div>
                 </div>
             </div>
@@ -1287,34 +1299,46 @@
                 if (slot.planted) {
                     plotElement.onclick = () => openFriendScreen(slot.id);
                     
-                    // Determine flower class based on strength for garden display
-                    let flowerClass = 'sapling';
-                    if (slot.strength >= 75) {
-                        flowerClass = 'blooming-flower';
-                    } else if (slot.strength >= 50) {
-                        flowerClass = 'budding-flower';
-                    } else if (slot.strength >= 25) {
-                        flowerClass = 'small-flower';
-                    }
-                    
-                    plotElement.innerHTML = `
-                        <div class="plot-active">
-                            <div class="flower-pot">
-                                <div class="${flowerClass}"></div>
-                            </div>
-                            <div class="friend-name">${slot.friendName}</div>
-                            <div class="hover-popup">
-                                <div class="popup-name">${slot.friendName}</div>
-                                <div class="strength-meter">
-                                    <div class="strength-label">Relationship Strength</div>
-                                    <div class="strength-bar">
-                                        <div class="strength-fill" style="width: ${slot.strength}%"></div>
+                    if (slot.strength <= 0) {
+                        // No flower shown for 0% strength
+                        plotElement.innerHTML = `
+                            <div class="plot-active">
+                                <div class="flower-pot"></div>
+                                <div class="friend-name">${slot.friendName}</div>
+                                <div class="hover-popup">
+                                    <div class="popup-name">${slot.friendName}</div>
+                                    <div class="strength-meter">
+                                        <div class="strength-label">Relationship Strength</div>
+                                        <div class="strength-bar">
+                                            <div class="strength-fill" style="width: ${slot.strength}%"></div>
+                                        </div>
+                                        <div class="strength-text">${Math.round(slot.strength)}%</div>
                                     </div>
-                                    <div class="strength-text">${Math.round(slot.strength)}%</div>
                                 </div>
                             </div>
-                        </div>
-                    `;
+                        `;
+                    } else {
+                        // Show flower for any strength > 0%
+                        const stage = Math.max(0, Math.min(9, Math.floor(slot.strength / 10)));
+                        plotElement.innerHTML = `
+                            <div class="plot-active">
+                                <div class="flower-pot">
+                                    <div class="flower-stage-${stage}"></div>
+                                </div>
+                                <div class="friend-name">${slot.friendName}</div>
+                                <div class="hover-popup">
+                                    <div class="popup-name">${slot.friendName}</div>
+                                    <div class="strength-meter">
+                                        <div class="strength-label">Relationship Strength</div>
+                                        <div class="strength-bar">
+                                            <div class="strength-fill" style="width: ${slot.strength}%"></div>
+                                        </div>
+                                        <div class="strength-text">${Math.round(slot.strength)}%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
                     
                     const popup = plotElement.querySelector('.hover-popup');
                     plotElement.addEventListener('mouseenter', () => popup.classList.add('show'));
@@ -1348,7 +1372,7 @@
             if (friendName && currentPlotId !== null) {
                 gardenSlots[currentPlotId].friendName = friendName;
                 gardenSlots[currentPlotId].planted = true;
-                gardenSlots[currentPlotId].strength = 25;
+                gardenSlots[currentPlotId].strength = 0;
                 gardenSlots[currentPlotId].lastActivity = null;
                 gardenSlots[currentPlotId].lastDecay = new Date().toISOString();
                 gardenSlots[currentPlotId].activityHistory = [];
@@ -1400,7 +1424,7 @@
             document.getElementById('friendStrengthValue').textContent = Math.round(friend.strength);
             document.getElementById('friendStrengthFill').style.width = friend.strength + '%';
             
-            updateFlowerStage(friend.strength);
+            updateFriendFlower(friend.strength);
             updateActivitySection(friend);
             updateActivityLog(friend);
             
@@ -1412,35 +1436,40 @@
         function backToGarden() {
             document.getElementById('friendScreen').style.display = 'none';
             document.getElementById('backButton').style.display = 'none';
-            const gardenScreen = document.getElementById('gardenScreen');
-            gardenScreen.style.display = 'flex';
+            document.getElementById('gardenScreen').style.display = 'flex';
             currentFriendId = null;
         }
 
-        function updateFlowerStage(strength) {
+        function updateFriendFlower(strength) {
             const flower = document.getElementById('largeFlower');
-            flower.className = 'large-flower';
+            flower.className = 'large-friend-flower';
             
-            if (strength < 25) {
-                flower.classList.add('stage-sapling');
-            } else if (strength < 50) {
-                flower.classList.add('stage-budding');
-            } else if (strength < 75) {
-                flower.classList.add('stage-blooming');
+            if (strength <= 0) {
+                flower.style.display = 'none';
             } else {
-                flower.classList.add('stage-full');
+                flower.style.display = 'block';
+                const stage = Math.min(Math.floor(strength / 10), 9);
+                flower.classList.add(`flower-stage-${stage}`);
+            }
+        }
+
+        function updateActivitySection(friend) {
+            const lastActivity = document.getElementById('lastActivity');
+            if (friend.activityHistory && friend.activityHistory.length > 0) {
+                const latest = friend.activityHistory[friend.activityHistory.length - 1];
+                lastActivity.textContent = `Last: ${latest.name} on ${new Date(latest.date).toLocaleDateString()}`;
+            } else {
+                lastActivity.textContent = 'No activities logged yet';
             }
         }
 
         function updateActivityLog(friend) {
-            const activityLogSection = document.getElementById('activityLogSection');
             const activityLogList = document.getElementById('activityLogList');
             
             if (!friend.activityHistory || friend.activityHistory.length === 0) {
                 activityLogList.innerHTML = '<div class="activity-log-empty">the activities you log will go here</div>';
             } else {
                 activityLogList.innerHTML = '';
-                
                 const sortedActivities = [...friend.activityHistory].sort((a, b) => new Date(b.date) - new Date(a.date));
                 
                 sortedActivities.forEach(activity => {
@@ -1458,53 +1487,41 @@
             }
         }
 
-        function updateActivitySection(friend) {
-            const button = document.getElementById('logActivityBtn');
-            const lastActivityDiv = document.getElementById('lastActivity');
-            
-            // Always enable the button
-            button.disabled = false;
-            button.textContent = 'Log Activity';
-            
-            if (friend.lastActivity) {
-                lastActivityDiv.innerHTML = `Last activity: ${new Date(friend.lastActivity).toLocaleDateString()}`;
-            } else {
-                lastActivityDiv.innerHTML = 'No activities logged yet';
-            }
-        }
-
         function logActivity() {
-            if (currentFriendId === null) return;
-            
             const activityType = document.getElementById('activityDropdown').value;
-            const friend = gardenSlots[currentFriendId];
             
-            if (!activityType || !activityTypes[activityType]) return;
-            
-            const weight = activityTypes[activityType].weight;
-            friend.strength = Math.min(100, friend.strength + weight);
-            friend.lastActivity = new Date().toISOString();
-            
-            if (!friend.activityHistory) {
-                friend.activityHistory = [];
+            if (activityType && currentFriendId !== null) {
+                const friend = gardenSlots[currentFriendId];
+                const activity = activityTypes[activityType];
+                
+                // Add to activity history
+                friend.activityHistory = friend.activityHistory || [];
+                friend.activityHistory.push({
+                    name: activity.name,
+                    weight: activity.weight,
+                    date: new Date().toISOString()
+                });
+                
+                // Increase strength
+                friend.strength = Math.min(100, friend.strength + activity.weight);
+                friend.lastActivity = new Date().toISOString();
+                
+                // Update UI
+                document.getElementById('friendStrengthValue').textContent = Math.round(friend.strength);
+                document.getElementById('friendStrengthFill').style.width = friend.strength + '%';
+                updateFriendFlower(friend.strength);
+                updateActivitySection(friend);
+                updateActivityLog(friend);
+                
+                // Reset dropdown
+                document.getElementById('activityDropdown').value = '';
+                
+                // Save data
+                saveGardenData();
+                
+                // Update the garden view too!
+                renderGarden();
             }
-            friend.activityHistory.push({
-                name: activityTypes[activityType].name,
-                weight: weight,
-                date: new Date().toISOString()
-            });
-            
-            document.getElementById('friendStrengthValue').textContent = Math.round(friend.strength);
-            document.getElementById('friendStrengthFill').style.width = friend.strength + '%';
-            updateFlowerStage(friend.strength);
-            updateActivitySection(friend);
-            updateActivityLog(friend);
-            
-            renderGarden();
-            saveGardenData();
-            
-            // Reset the dropdown to default
-            document.getElementById('activityDropdown').value = '';
         }
 
         function confirmReset() {
@@ -1525,24 +1542,22 @@
             ];
             
             gardenData = {};
-            cancelReset();
+            saveGardenData();
             renderGarden();
+            cancelReset();
             
             if (currentFriendId !== null) {
                 backToGarden();
             }
         }
 
-        document.getElementById('friendNameInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                plantFriend();
-            }
-        });
-
-        document.getElementById('modalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+        // Enter key support for modal
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('friendNameInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    plantFriend();
+                }
+            });
         });
     </script>
 </body>
