@@ -1267,16 +1267,27 @@
         let currentPlotId = null;
         let deleteConfirmId = null;
         let currentFriendId = null;
-        let gardenData = {};
 
         function saveGardenData() {
-            gardenData = JSON.parse(JSON.stringify(gardenSlots));
+            try {
+                localStorage.setItem('floraGardenData', JSON.stringify(gardenSlots));
+            } catch (error) {
+                console.error('Failed to save garden data:', error);
+            }
         }
 
         function loadGardenData() {
-            if (gardenData && Array.isArray(gardenData) && gardenData.length === 5) {
-                gardenSlots = JSON.parse(JSON.stringify(gardenData));
-                return true;
+            try {
+                const savedData = localStorage.getItem('floraGardenData');
+                if (savedData) {
+                    const parsedData = JSON.parse(savedData);
+                    if (Array.isArray(parsedData) && parsedData.length === 5) {
+                        gardenSlots = parsedData;
+                        return true;
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to load garden data:', error);
             }
             return false;
         }
@@ -1541,8 +1552,13 @@
                 { id: 4, friendName: null, planted: false, strength: 0, lastActivity: null, lastDecay: null, activityHistory: [] }
             ];
             
-            gardenData = {};
-            saveGardenData();
+            // Clear localStorage
+            try {
+                localStorage.removeItem('floraGardenData');
+            } catch (error) {
+                console.error('Failed to clear garden data:', error);
+            }
+            
             renderGarden();
             cancelReset();
             
